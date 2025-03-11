@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../../config/theme/theme';
 import { useAnimation } from '../../hooks/useAnimation';
