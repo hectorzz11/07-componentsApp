@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import '../gesture-handler.native';
 import React from 'react';
 import { Text, View } from 'react-native';
