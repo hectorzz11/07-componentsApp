@@ -1,10 +1,12 @@
 
+
 /* eslint-disable react-native/no-inline-styles */
 
 import Icon from '@react-native-vector-icons/ionicons';
 import { StyleSheet, Text, Pressable,View} from 'react-native';
 import { colors } from '../../../config/theme/theme';
 import { useNavigation } from '@react-navigation/native';
+import { Separator } from './Separator';
 interface Props{
     name: string;
     icon: string;
@@ -17,6 +19,7 @@ export const MenuItem = ({ name, icon, component, isFirst = false, isLast = fals
   const navigation = useNavigation<any>();
 
   return (
+  <>
   <Pressable
     onPress={()=>navigation.navigate(component)}
   >
@@ -31,6 +34,13 @@ export const MenuItem = ({ name, icon, component, isFirst = false, isLast = fals
           <Icon name= "chevron-forward-outline" size= { 25 } style={{marginLeft:'auto', color:colors.primary }} />
         </View>
     </Pressable>
+    {
+      !isLast && (
+        <Separator/>
+      )
+    }
+    </>
+
   );
 };
 
