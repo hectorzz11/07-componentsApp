@@ -9,12 +9,14 @@ interface Props {
   text?: string;
   onChange: (value: boolean) => void;
 }
-export const CustomSwitch = ({ isOn, onChange, text }: Props) => {
+export const CustomSwitch = ({ isOn, text, onChange }: Props) => {
   return (
     <View style={styles.switchRow}>
-        <Text>{text}</Text>
+        {
+          text && (<Text style={{color:colors.text}}>{text}</Text>)
+        }
         <Switch
-          thumbColor={Platform.OS === 'ios' ? '#7607577' : colors.primary}
+          thumbColor={Platform.OS === 'android' ? colors.primary : 'white'}
           //thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
           ios_backgroundColor="#3e3e3e"
           onValueChange={onChange}

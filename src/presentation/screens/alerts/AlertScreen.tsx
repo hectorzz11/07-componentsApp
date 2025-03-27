@@ -1,3 +1,4 @@
+
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
 import { Alert, Text, View } from 'react-native';
@@ -7,7 +8,7 @@ import { Title } from '../../components/ui/Title';
 import { Button } from '../ui/Button';
 
 export const AlertScreen = () => {
-    const createTwoButtonAlert = () =>
+    const createTwoButtonAlert = () =>{
         Alert.alert('Alert Title', 'My Alert Msg', [
           {
             text: 'Cancel',
@@ -18,8 +19,10 @@ export const AlertScreen = () => {
         ],{
           userInterfaceStyle:'dark',
         });
+      };
+        // Alert.alert(
 
-      const createThreeButtonAlert = () =>
+      const createThreeButtonAlert = () =>{
         Alert.alert('Alert Title', 'My Alert Msg', [
           {
             text: 'Ask me later',
@@ -33,27 +36,46 @@ export const AlertScreen = () => {
           {text: 'OK', onPress: () => console.log('OK Pressed')},
         ],{cancelable:true,
         });
-  return (
-    <CustomView style={globalStyles.globalMargin}>
-        <Title safe text="Alerts" />
-        <Button
-            text="Alerta - 2 Botones"
-            onPress={createTwoButtonAlert}
-        />
-        <View style={{height:10}} />
+      };
+      const showPrompt = () => {
+        Alert.prompt(
+          '✉️ Email Address',
+          'Please enter your email to continue',
+          (valor: string) => {
+        if (valor.trim().length === 0) {
+          Alert.alert('Error', 'Email cannot be empty');
+          return;
+        }
+        console.log('Email entered:', valor);
+          },
+          'plain-text',
+          '',
+          'email-address'
+        );
+      };
+
+      return (
+        <CustomView style={globalStyles.globalMargin}>
+        <Title safe text="Alert Examples" />
 
         <Button
-            text="Alerta - 3 Botones"
-            onPress={createThreeButtonAlert}
+        text="Two Button Alert"
+        onPress={createTwoButtonAlert}
         />
-        <View style={{height:10}} />
+        <View style={{height: 12}} />
 
         <Button
-            text="Prompt - Input"
-            onPress={()=>{}}
+        text="Three Button Alert"
+        onPress={createThreeButtonAlert}
         />
-        <View style={{height:10}} />
+        <View style={{height: 12}} />
 
-    </CustomView>
+        <Button
+        text="📧 Email Prompt"
+        onPress={showPrompt}
+        />
+        <View style={{height: 12}} />
+
+        </CustomView>
   );
 };

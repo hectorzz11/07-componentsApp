@@ -12,6 +12,7 @@ export const Separator = ({style}:Props) => {
       <View style={[
           {
               alignSelf: 'center',
+              opacity: 0.2,
               width:'80%',
               height:1,
               backgroundColor:colors.text,
