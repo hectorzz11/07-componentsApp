@@ -10,8 +10,7 @@ export const Button = ({text, styles,onPress}:Props) => {
   return (
     <Pressable
         onPress = {onPress}
-        style={({pressed})=>([
-            globalStyles.btnPrimary,
+        style={({pressed})=>([    globalStyles.btnPrimary,
             {
                 opacity:pressed ? 0.8 : 1,
                 backgroundColor: colors.primary,
@@ -28,3 +27,5 @@ export const Button = ({text, styles,onPress}:Props) => {
     </Pressable>
   );
 };
+
+        
